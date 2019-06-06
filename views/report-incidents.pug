@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h2="Reporting Engine"
+    form.form-inline(method='POST')
+        div.form-group.required
+            label.col-sm-2.col-form-label From
+            div.col-sm-10
+                input.form-control(name='fromdate' value=start id='fromdate' type="datetime-local" required)
+        div.form-group.required
+            label.col-sm-2.col-form-label To
+            div.col-sm-10
+                input.form-control(name='todate' id='todate' value=end type="datetime-local" required) 
+        button.btn-success(formaction="/list-incidents" id='abc') Search
+    block details  
+    script.
+        document.getElementById('fromdate').valueAsDate =new Date();;
+        document.getElementById('todate').valueAsDate=new Date();

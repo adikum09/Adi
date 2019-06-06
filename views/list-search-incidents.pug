@@ -1,0 +1,33 @@
+extends search-existing
+
+block details
+  h1.incidentheader="Incident Details"
+  table(class="table table-bordered table-bordered table-striped table-hover")
+    thead
+      th="Incident ID"
+        th="App_Id"
+        th="Create_Date"
+        th="Region"
+        th="Issue_Description"
+        th="Impact"
+        th="Resolution"
+        th="Issue_Status"
+        th="SLA Details"
+        th="SOP_Link"
+        th="Teams Involved"
+        th="Resolver Group"
+    each value, index in incidents
+      tr
+       td=value.Incident_Id
+       td=value.App_Id
+       td=value.Create_Date
+       td=value.Region
+       td=value.Issue_Description
+       td=value.Impact
+       td=value.Resolution
+       td=value.Issue_Status
+       td=value.SLA_Details
+       td=value.SOP_Link
+       td=value.Teams_Involved
+       td=value.Resolver_Group
+    

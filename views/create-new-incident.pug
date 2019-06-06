@@ -1,0 +1,105 @@
+extends layout
+
+block content
+    h2="Create New Incident"
+    div.parent
+        div.wrapper(class='input-fields')
+            form#submitForm(method='POST')
+                div.form-group.form-check(class='items')
+                    label Select Record Input Type
+                        div
+                            input.form-check-input( type="radio" name='type' onclick="javascript:handleRadio();" id="raw" checked value="raw")
+                            label.form-check-label.radiolabel Raw
+                        div
+                            input.form-check-input(type="radio" name='type' onclick="javascript:handleRadio();"  id="actual" value="actual")
+                            label.form-check-label.radiolabel Actual 
+                
+                div.form-group(class='items')
+                    label Created Date    
+                        input.recordinput(name= 'Create_Date' type='datetime-local' value=settime)
+                div.form-group.required(class='items')
+                    label App ID      
+                        input.recordinput(name = 'App_Id' required)
+                div.form-group.required(class='items')
+                    label Issue Description      
+                        textarea(rows="3" cols="40" name='Issue_Description' required)
+                div.form-group(class='items')
+                    label Impact     
+                        select( name='Impact')
+                            option Critical
+                            option Major Issue
+                            option No Impact
+                div.form-group.required(class='items' hidden=true)
+                    label Incident ID     
+                        input.recordinput(name = 'Incident_Id' required)
+                div.form-group(class='items' hidden=true)
+                    label Region      
+                        select( name='Region')
+                            option APAC
+                            option EMEA
+                            option NA
+                            Option Global
+                div.form-group(class='items' hidden=true)
+                    label Resolution      
+                        textarea(rows="3" cols="40" name='Resolution')
+                div.form-group(class='items' id='items' hidden=true)
+                    label Issue Status      
+                        select( name='Issue_Status')
+                            option Fixed
+                            option In Progress
+                            option Outstanding
+                div.form-group(class='items' hidden=true)
+                    label SLA Details      
+                        input.recordinput(name='SLA_Details')
+                div.form-group(class='items' id='SOP' hidden=true)
+                    label Teams Involved      
+                        input.recordinput(name='Teams_Involved')
+                div.form-group(class='items' id='Resolver_Group' hidden=true)
+                    label Resolver Group      
+                        input.recordinput(name='Resolver_Group')
+                div.form-group(class='items' id='Resolver Group' hidden=true)
+                    label SOP Link      
+                        input.recordinput(name='SOP_Link')
+                
+                
+                div.form-group.items
+                    button.btn-success( formaction='/submit-new-incident') Submit
+            //- Download Incidents
+        div.openissues
+            h4 POTENTIAL ISSUES
+            br
+            table(class="table table-bordered table-bordered table-striped table-hover")
+                thead
+                    tr.head
+                        th S.No
+                        //th="Incident ID"
+                        th="App ID"
+                        th="Create Date"
+                        th="Issue Description"                         
+                        th(hidden=true)="ID"   
+                        th="Delete"       
+                    each value, index in incidents
+                        tr.column
+                            td=index+1 
+                            //td=value.Incident_Id
+                                //- a(href='new-incident', target='_blank')=value.Incident_Id
+                            td=value.App_Id
+                            td=value.Create_Date
+                            td=value.Issue_Description
+                            td(hidden=true)=value._id
+                            td
+                                a(href=value._id) Delete
+    script.
+        function handleRadio(){ 
+            if(document.getElementById('actual').checked){
+                for (i=4; i < document.getElementsByClassName('items').length;i++){
+                    document.getElementsByClassName('items')[i].hidden = false;
+                }
+            }else{
+               for (i=5; i < document.getElementsByClassName('items').length;i++){
+                    document.getElementsByClassName('items')[i].hidden = true;
+                } 
+                document.getElementsByClassName('items')[document.getElementsByClassName('items').length-1].hidden = false;
+            }
+           
+        }

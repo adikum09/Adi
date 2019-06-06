@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h2="Search an Existing Incident"
+    form.form-inline(method='POST')
+        div.form-group.required
+            label.col-sm-2.col-form-label Search
+            div.col-sm-10
+                input.form-control(name='search' required placeholder="App or Issue Description")
+        div.form-group(id='items')
+            label.col-form-label History      
+            select( class="form-control form-control-sm" name='History')
+                option Last 7 Days
+                option Last 30 Days
+                option All    
+        button.btn-success(formaction="/list-incidents") Search
+    block details
+        

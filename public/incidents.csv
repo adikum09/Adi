@@ -1,0 +1,3 @@
+type,Create_Date,App_Id,Issue_Description,Impact,Incident_Id,Region,Resolution,Issue_Status,SLA_Details,Teams_Involved,Resolver_Group,SOP_Link,App_IdIncident_Id
+actual,2019-04-29 14:45,ESP,Mart failure,Critical,INC987654321,APAC,Force started job,Fixed,No SLA missed,"ESP,MYSS",ACL-ESP-L2,//asg.com
+actual,2019-04-29 14:36,PNA,Fund failed 5 times.;Marked flag to N,Critical,,APAC,,Fixed,DEAM SLA missed,"PNA,ESP,Unix",ACL-PAW-L2,http://asg.com,INC456789

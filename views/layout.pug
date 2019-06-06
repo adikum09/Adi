@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/Radar.css')
+    link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
+  body
+    div(class="banners")
+      img(src="/images/wipro.jpeg", class="banner")
+      img(src="/images/statestreet.png", class="banner")
+    h1="Welcome To RADAR Knowledge Management"
+    div.banners
+      a.btn(type="button"  href="/search-existing-incident") Search Existing Incident
+      a.btn(type="button"  href="/create-new") Log New Incident
+      a.btn(type="button"  href='/report-engine') Reporting Engine
+    block content
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+  p.bottom Wipro Limited &copy 2019
