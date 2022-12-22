@@ -14,7 +14,7 @@
     "express": "^4.16.4",
     "fs": "0.0.1-security",
     "jsonexport": "^2.4.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.24.0",
     "mongodb": "^3.2.3",
     "path": "^0.12.7",
